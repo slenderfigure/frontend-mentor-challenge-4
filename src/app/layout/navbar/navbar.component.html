@@ -1,0 +1,28 @@
+<header class="page-header"
+  [class.dark-theme]="darkModeActive">
+  <flag-progressbar></flag-progressbar>
+  
+  <nav class="page-header__navbar">
+    <div class="page-header__wrapper wrapper">
+      <a routerLink="/" 
+        class="page-header__logo image-lock">
+        Where in the world?
+      </a>
+
+      <button (click)="changeTheme()" 
+        aria-label="Theme Toggle"
+        type="button" 
+        class="page-header__theme-toggle image-lock">
+        <img [src]="!darkModeActive 
+          ? 'assets/images/icon-moon-outlined.svg'
+          : 'assets/images/icon-moon-filled.svg'" 
+          alt="icon" 
+          class="icon"
+          draggable="false">
+        <span class="text">
+          {{ !darkModeActive ? 'Dark Mode' : 'Light Mode' }}
+        </span>
+      </button>
+    </div>
+  </nav>
+</header>

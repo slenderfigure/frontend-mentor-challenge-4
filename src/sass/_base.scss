@@ -1,0 +1,51 @@
+html {
+  overflow-x: hidden;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Nunito Sans';
+  font-weight: 300;
+  box-sizing: border-box;
+  background-color: $lightGrey;
+  transition: background-color .3s $easeOutQuint;
+
+  ::selection {
+    color: $white;
+    background-color: #659bec;
+  }
+
+  &.dark-theme {
+    background-color: $veryDarkBlue;
+  }
+}
+
+*,
+*::before,
+*::after {
+  color: inherit;
+  font: inherit;
+  box-sizing: inherit;
+  outline: none;
+}
+
+img {
+  display: block;
+}
+
+button {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+}
+
+a,
+button {
+  &:focus-visible { 
+    box-shadow: 0 0 0 3px #3f7fe0;
+  }
+}

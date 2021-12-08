@@ -1,0 +1,304 @@
+@import '/src/styles.scss';
+
+.landingpage {
+  width: 100%;
+  padding: 0 1.5rem 5rem;
+
+  &.dark-theme {
+    color: $white;
+    fill: $white;
+
+    .form-control,
+    .filter-list {
+      background-color: $darkBlue;
+    }
+
+    .search-button {
+      .icon { fill: $white; }
+    }
+
+    .search-input {
+      &::placeholder { color: $white; }
+    }
+
+    .landingpage__no-search-results {
+      color: $white;
+    }
+
+    #ic_fluent_location_not_found_24_filled {
+      fill: $white !important;
+    }
+  }
+
+  &__search-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 3rem 0;
+    font-size: $smallFont;
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      flex-direction: column;
+    }
+   
+    .form-control {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      padding: 0 1.2rem;
+      background-color: $white;
+      border-radius: .4rem;
+      box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+      transition: background-color .3s $easeOutQuint;
+
+      &[role="searchbox"] {
+        width: 350px;
+
+        @media only screen and (max-width: $mobileBreakpoint) {
+          width: 100%;
+        }
+ 
+        &:focus-visible { 
+          box-shadow: 0 0 0 2px #3f7fe0;
+        }
+      }
+    }
+
+    .search-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+
+      .icon {
+        fill: $darkGrey;
+      }  
+    }
+
+    .search-input {
+      display: block;
+      flex: 1;
+      padding: 0 1rem;
+      outline: none;
+
+      &::placeholder {
+        font-size: .8rem;
+        user-select: none;
+      }
+    }
+
+    .filter-menu {
+      position: relative;
+      width: 11.5rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .filter-button {
+      @extend .form-control;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      overflow: hidden;
+
+      &:focus-visible { 
+        box-shadow: 0 0 0 2px #3f7fe0;
+      }
+
+      &.active {
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        margin-right: -5px;
+        transition: transform .2s $easeOutQuint;
+      }
+      
+      .text {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .filter-list {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-1rem);
+      position: absolute;
+      left: 0;
+      top: calc(100% + 4px);
+      width: 100%;
+      height: auto;
+      padding: .7rem 0;
+      background-color: $white;
+      border-radius: .4rem;
+      box-shadow: 0 4px 1rem rgba(0, 0, 0, .2);
+      transition: transform .2s $easeOutQuint,
+                  opacity .2s $easeOutQuint,
+                  background-color .3s $easeOutQuint;
+      z-index: 2;
+
+      &.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .filter-list-item {
+        padding: .7rem 1.2rem;
+        cursor: pointer;
+
+        &:focus-visible { 
+          box-shadow: 0 0 0 2px #3f7fe0;
+        }
+
+        &.active,
+        &:hover {
+          background-color: rgba(0, 0, 0, .1);
+        }
+      }
+    }
+  }
+
+  &__countries,
+  &__countries-skeleton {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 3.5rem;
+    animation: fadeIn .4s $easeOutQuint;
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      padding: 0 3rem;
+    }
+  }
+
+  &__countries-skeleton {
+
+    &.dark-theme {
+
+      .skeleton-card {
+
+        &::after {
+          background-image: linear-gradient(
+            to left, 
+            transparent, 
+            $veryDarkBlue, 
+            transparent
+          );
+        }
+
+        .top,
+        .bar {
+          background-color: $darkBlue;
+        }
+      }
+    }
+    
+    .skeleton-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+          to left, 
+          transparent, 
+          $lightGrey, 
+          transparent
+        );
+        animation: oscilate 1s linear infinite; 
+      }
+      
+      .top {
+        height: 9.5rem;
+        margin-bottom: .5rem;
+        border-radius: .4rem;
+        background-color: rgba(0, 0, 0, .2);
+      }
+
+      .body {
+        padding: 1rem 1.2rem;
+      }
+
+      .bar {
+        border-radius: .5rem;
+        background-color: rgba(0, 0, 0, .2);
+
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+        }
+        
+        &-l {
+          width: 85%;
+          height: 1rem;
+        }
+
+        &-s {
+          width: 65%;
+          height: .85rem;
+        }
+      }
+    }
+  }
+
+  &__no-search-results {
+    width: 100%;
+    padding: 6rem 0;
+    color: $darkGrey;
+    text-align: center;
+    animation: fadeIn .4s $easeOutQuint;
+    user-select: none;
+  
+    .text {
+      font-size: 3.5rem;
+      text-transform: capitalize;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+  
+      @media only screen and (max-width: $tabletBreakpoint) {
+        font-size: 3rem;
+      }
+      
+      @media only screen and (max-width: $mobileBreakpoint) {
+        font-size: 2rem;
+      }
+    }
+  
+    .icon {
+      width: 10rem;
+      height: 10rem;
+  
+      @media only screen and (max-width: $tabletBreakpoint) {
+        width: 8rem;
+        height: 8rem;
+      }
+  
+      @media only screen and (max-width: $mobileBreakpoint) {
+        width: 6rem;
+        height: 6rem;
+      }
+      
+      #ic_fluent_location_not_found_24_filled {
+        fill: $darkGrey;
+      }
+    }
+  }
+}
+

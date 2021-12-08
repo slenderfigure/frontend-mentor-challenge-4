@@ -1,0 +1,42 @@
+<a *ngIf="country" 
+  [routerLink]="['/country-details', country.cca2]"
+  role="listitem"
+  class="country-card"
+  [class.loading]="!loaded"
+  [class.dark-theme]="darkModeActive">
+  <figure class="country-card__flag image-lock">
+    <img smooth-image-loader 
+      (loaded)="loaded"
+      [src]="country.flags.svg" 
+      [alt]="country.name.common"
+      draggable="false"
+      class="icon">
+  </figure>
+
+  <article class="country-card__body">
+    <p class="country-card__name">
+      {{ country.name.common }}
+    </p>
+
+    <p class="country-card__population">
+      <span class="label">Population: </span>
+      <span class="value">
+        {{ country.population | number }}
+      </span>
+    </p>
+
+    <p class="country-card__region">
+      <span class="label">Region: </span>
+      <span class="value">
+        {{ country.region }}
+      </span>
+    </p>
+
+    <p class="country-card__capital">
+      <span class="label">Capital: </span>
+      <span class="value">
+        {{ country.capital }}
+      </span>
+    </p>
+  </article>
+</a>

@@ -1,0 +1,66 @@
+@import '/src/styles.scss';
+
+:host {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  font-size: $smallFont;
+  border-radius: .4rem;
+  background-color: $white;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .06);
+  transition: background-color .3s $easeOutQuint;
+  overflow: hidden;
+
+  &:focus-visible { 
+    box-shadow: 0 0 0 2px #3f7fe0;
+  }
+
+  &.dark-theme {
+    background-color: $darkBlue;
+  }  
+
+  &__flag {
+    width: inherit;
+    height: 9.5rem;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    padding: 1.5rem 1.2rem;
+    overflow: hidden;
+  }
+
+  &__name {
+    margin-bottom: 1rem;
+    font-size: $mediumFont;
+    font-weight: 800;
+  }
+
+  &__population,
+  &__region,
+  &__capital {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:not(:last-of-type) {
+      margin-bottom: .5rem;
+    }
+
+    .label {
+      font-weight: 600;
+    }
+  }
+}

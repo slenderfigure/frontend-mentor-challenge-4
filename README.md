@@ -1,27 +1,52 @@
-# RestCountries
+# Frontend Mentor - Easybank landing page challenge hub solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
+This is a solution to the [Easybank landing page challenge hub on Frontend Mentor](https://www.frontendmentor.io/challenges/easybank-landing-page-WaUhkoDN). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+## Table of contents
 
-## Development server
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+### The challenge
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Users should be able to:
 
-## Build
+- View the optimal layout for each of the website's pages depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each page and be able to toggle between the tabs to see new information
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Screenshot
 
-## Running unit tests
+![](./screenshot.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Links
 
-## Running end-to-end tests
+- Solution URL: [GitHub Repo](https://github.com/slenderfigure/-frontend-mentor-challenge-3)
+- Live Site URL: [GitHub Pages](https://slenderfigure.github.io/frontend-mentor-challenge-3/)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## My process
 
-## Further help
+### Built with
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Desktop-First Workflow
+- Semantic HTML5
+- Accessibility in mind
+- BEM Methodology
+- SCSS
+- Flexbox
+- CSS Grid
+- TypeScript
+- JSON
+- RxJS
+- [Angular](https://angular.io/) - Angular Framework
+
+## Author
+
+- Frontend Mentor - [@slenderfigure](https://www.frontendmentor.io/profile/slenderfigure)
+- LinkedIn - [Adison Peña](https://www.linkedin.com/in/adison-pe%C3%B1a-945b36218/)

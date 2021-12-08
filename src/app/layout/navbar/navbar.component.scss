@@ -1,0 +1,70 @@
+@import '/src/styles.scss';
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1.5rem;
+  font-size: $mediumFont;
+  background-color: $white;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .05);
+  transition: background-color .3s $easeOutQuint;
+  z-index: 5;
+
+  &.dark-theme {
+    color: $white;
+    background-color: $darkBlue;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      height: 3.5rem;
+    }
+  }
+
+  &__logo {
+    font-size: $mediumFont;
+    font-weight: 800;
+    border-radius: .3rem;
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      font-size: $mediumFont;
+    }
+  }
+
+  &__theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    width: 6.7rem;
+    padding: .2rem 0;
+    font-size: $smallFont;
+    font-weight: 600;
+    border-radius: .3rem;
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      width: fit-content;
+      padding: .5rem;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .text {
+      margin-top: 1px;
+
+      @media only screen and (max-width: $mobileBreakpoint) {
+        display: none;
+      }
+    }
+  }
+
+}

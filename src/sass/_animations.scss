@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes oscilate {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(0) scaleX(0);
+  }
+
+  25% {
+    transform: translateX(0) scaleX(0.4);
+  }
+
+  50% {
+    transform: translateX(0) scaleX(0.8);
+  }
+
+  100% {
+    transform: translateX(100%) scaleX(0);
+  }
+}
