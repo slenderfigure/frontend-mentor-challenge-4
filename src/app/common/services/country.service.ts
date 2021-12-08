@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Country, Name } from '../models/country.model';
+import { Border, Country, Name } from '../models/country.model';
 import { environment as env } from 'src/environments/environment';
 import { SrchQuery } from '../models/search-query.model';
 import { CountrySrchResult } from '../models/country-srch.model';
@@ -22,11 +22,11 @@ export class CountryService {
     );
   }
 
-  getCountryBorderName(code: string): Observable<string> {
-    const url = `${env.API}/alpha/${code}?fields=name`;
+  getCountryBorderName(code: string): Observable<Border> {
+    const url = `${env.API}/alpha/${code}?fields=name,cca2`;
 
-    return this.http.get<Country>(url).pipe(
-      map(res => res.name.common),
+    return this.http.get<CountrySrchResult>(url).pipe(
+      map(res => ({ name: res.name.common, cca2: res.cca2 })),
       catchError(this.errorHandler)
     );
   }

@@ -3,7 +3,7 @@ import { Flags } from "./country-srch.model";
 export interface Country {
   name:         Name; 
   tld:          string[]; 
-  borders:      string[];
+  borders:      string[] | any[];
   currencies:   Currencies; 
   capital:      string[]; 
   flags:        Flags;
@@ -11,6 +11,11 @@ export interface Country {
   population:   number;
   subregion:    string; 
   languages:    Languages;
+}
+
+export interface Border {
+  name: string;
+  cca2: string;
 }
 
 export interface Currencies {

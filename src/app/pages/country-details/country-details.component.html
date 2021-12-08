@@ -1,5 +1,127 @@
-<section class="country-details">
-  <div class="country-details-wrapper wrapper">
-    
+<section class="country-details"
+  [class.dark-theme]="darkModeActive">
+  <div class="country-details__wrapper wrapper">
+    <div class="country-details__top">
+      <button (click)="onGoBack()"
+        type="button" 
+        class="return-button">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px">
+          <rect fill="none" height="24" width="24"/><path d="M9,19l1.41-1.41L5.83,13H22V11H5.83l4.59-4.59L9,5l-7,7L9,19z"/>
+        </svg>
+        <span class="text">Back</span>
+      </button>
+    </div>
+
+    <div class="country-details__content">
+      <figure class="country-details__flag image-lock">
+        <img smooth-image-loader 
+          [src]="details.flags.svg" 
+          [alt]="details.name.common"
+          draggable="false"
+          class="image">
+      </figure>
+
+      <article class="country-details__information">
+        <h1 class="country-details__common-name">
+          {{ details.name.common }}
+        </h1>
+
+        <div class="characteristics-list-wrap row">
+          <ul class="characteristics-list">
+            <li class="characteristics-item">
+              <span class="key">
+                Native Name:
+              </span>
+              <span class="value">
+                {{ nativeName }}
+              </span>
+            </li>
+
+            <li class="characteristics-item">
+              <span class="key">
+                Population:
+              </span>
+              <span class="value">
+                {{ details.population | number }}
+              </span>
+            </li>
+
+            <li class="characteristics-item">
+              <span class="key">
+                Region:
+              </span>
+              <span class="value">
+                {{ details.region }}
+              </span>
+            </li>
+
+            <li class="characteristics-item">
+              <span class="key">
+                Sub Region:
+              </span>
+              <span class="value">
+                {{ details.subregion }}
+              </span>
+            </li>
+            
+            <li class="characteristics-item">
+              <span class="key">
+                Capital:
+              </span>
+              <span class="value">
+                {{ details.capital.join(', ') }}
+              </span>
+            </li>        
+          </ul>
+
+          <ul class="characteristics-list">
+            <li class="characteristics-item">
+              <span class="key">
+                Top Level Domain:
+              </span>
+              <span class="value">
+                {{ details.tld.join(', ') }}
+              </span>
+            </li>
+
+            <li class="characteristics-item">
+              <span class="key">
+                Currencies:
+              </span>
+              <span class="value">
+                {{ currencies }}
+              </span>
+            </li>
+            
+            <li class="characteristics-item">
+              <span class="key">
+                Languages:
+              </span>
+              <span class="value">
+                {{ languages }}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="details.borders.length" 
+          class="borders-list-wrap row">
+          <p class="border-label">Border Countries:</p>
+
+          <ul role="menubar"
+            class="borders-list">
+            <li *ngFor="let border of (details.borders)" 
+              role="menuitem"
+              class="border-item">
+              <a [routerLink]="['/country-details', border.cca2]" 
+                [title]="border.name"
+                class="border-link">
+                {{ border.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
