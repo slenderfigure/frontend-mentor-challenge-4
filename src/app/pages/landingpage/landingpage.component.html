@@ -21,32 +21,11 @@
           class="search-input">
       </div>
 
-      <div class="filter-menu">
-        <button (click)="showFilterList = !showFilterList;"
-          type="button" 
-          class="filter-button"
-          [class.active]="showFilterList">
-          <span class="text">Filter by Region</span>
-
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M24 24H0V0h24v24z" fill="none"/>
-            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
-          </svg>
-        </button>
-
-        <ul role="menu" 
-          class="filter-list"
-          [class.active]="showFilterList">
-          <li *ngFor="let region of regions" 
-            (click)="onFilterClicked($event, region)"
-            (keyup)="onFilterEnterKeyPressed($event, region)"
-            tabindex="0"
-            role="menuitem" 
-            class="filter-list-item"
-            [class.active]="defaultSrchQuery?.region === region">
-            {{ region }}
-          </li>
-        </ul>
-      </div>
+      <flag-region-filter-menu
+        [darkModeActive]="darkModeActive"
+        [selectedOption]="defaultSrchQuery.region ? defaultSrchQuery.region : ''"
+        (filterChanged)="updateFilter($event)">
+      </flag-region-filter-menu>
     </form>
 
     <section *ngIf="!fetchingData && countries.length; else dataFetchIndicator"

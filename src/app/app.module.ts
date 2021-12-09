@@ -11,6 +11,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { CountryCardComponent } from './pages/landingpage/country-card/country-card.component';
 import { SharedModule } from './shared/shared.module';
 import { ProgressbarComponent } from './layout/navbar/progressbar/progressbar.component';
+import { RegionFilterMenuComponent } from './pages/landingpage/region-filter-menu/region-filter-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProgressbarComponent } from './layout/navbar/progressbar/progressbar.co
     CountryDetailsComponent,
     NavbarComponent,
     ProgressbarComponent,
-    CountryCardComponent
+    CountryCardComponent,
+    RegionFilterMenuComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,7 @@
     color: $white;
     fill: $white;
 
-    .form-control,
-    .filter-list {
+    .form-control {
       background-color: $darkBlue;
     }
 
@@ -86,84 +85,6 @@
       &::placeholder {
         font-size: .8rem;
         user-select: none;
-      }
-    }
-
-    .filter-menu {
-      position: relative;
-      width: 11.5rem;
-      font-size: .8rem;
-      font-weight: 600;
-    }
-
-    .filter-button {
-      @extend .form-control;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      width: 100%;
-      overflow: hidden;
-
-      &:focus-visible { 
-        box-shadow: 0 0 0 2px #3f7fe0;
-      }
-
-      &.active {
-        .icon {
-          transform: rotate(180deg);
-        }
-      }
-
-      .icon {
-        width: 1rem;
-        height: 1rem;
-        margin-right: -5px;
-        transition: transform .2s $easeOutQuint;
-      }
-      
-      .text {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
-
-    .filter-list {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-1rem);
-      position: absolute;
-      left: 0;
-      top: calc(100% + 4px);
-      width: 100%;
-      height: auto;
-      padding: .7rem 0;
-      background-color: $white;
-      border-radius: .4rem;
-      box-shadow: 0 4px 1rem rgba(0, 0, 0, .2);
-      transition: transform .2s $easeOutQuint,
-                  opacity .2s $easeOutQuint,
-                  background-color .3s $easeOutQuint;
-      z-index: 2;
-
-      &.active {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .filter-list-item {
-        padding: .7rem 1.2rem;
-        cursor: pointer;
-
-        &:focus-visible { 
-          box-shadow: 0 0 0 2px #3f7fe0;
-        }
-
-        &.active,
-        &:hover {
-          background-color: rgba(0, 0, 0, .1);
-        }
       }
     }
   }
