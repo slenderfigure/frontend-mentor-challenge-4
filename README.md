@@ -1,6 +1,6 @@
-# Frontend Mentor - Easybank landing page challenge hub solution
+# Frontend Mentor - REST Countries API with color theme switcher challenge hub
 
-This is a solution to the [Easybank landing page challenge hub on Frontend Mentor](https://www.frontendmentor.io/challenges/easybank-landing-page-WaUhkoDN). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [REST Countries API with color theme switcher challenge hub on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 ## Table of contents
 
 - [Overview](#overview)
@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repo](https://github.com/slenderfigure/-frontend-mentor-challenge-3)
-- Live Site URL: [GitHub Pages](https://slenderfigure.github.io/frontend-mentor-challenge-3/)
+- Solution URL: [GitHub Repo](https://github.com/slenderfigure/-frontend-mentor-challenge-4)
+- Live Site URL: [GitHub Pages](https://slenderfigure.github.io/frontend-mentor-challenge-4/)
 
 ## My process
 
@@ -45,6 +45,7 @@ Users should be able to:
 - JSON
 - RxJS
 - [Angular](https://angular.io/) - Angular Framework
+- Rest API
 
 ## Author
 
