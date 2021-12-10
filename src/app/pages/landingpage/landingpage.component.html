@@ -13,7 +13,6 @@
     </flag-search-form>
 
     <section *ngIf="!fetchingData && countries.length; else dataFetchIndicator"
-      role="list" 
       class="landingpage__countries">
       <flag-country-card *ngFor="let country of countries;"
         [darkModeActive]="darkModeActive"

@@ -1,6 +1,5 @@
 <a *ngIf="country" 
   [routerLink]="['/country-details', country.cca2]"
-  role="listitem"
   class="country-card"
   [class.loading]="!loaded"
   [class.dark-theme]="darkModeActive">
@@ -15,9 +14,9 @@
   </figure>
 
   <article class="country-card__body">
-    <p class="country-card__name">
+    <h1 class="country-card__name">
       {{ country.name.common }}
-    </p>
+    </h1>
 
     <p class="country-card__population">
       <span class="label">Population: </span>
