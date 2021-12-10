@@ -27,18 +27,26 @@
 
   &__flag {
     width: inherit;
-    height: 9.5rem;
+    height: 10rem;
 
     .icon {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      height: 12rem;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      height: 16rem;
+    }
   }
 
   &__body {
     flex: 1;
-    padding: 1.5rem 1.2rem;
+    padding: 1.5rem 1.2rem 2.5rem;
     overflow: hidden;
   }
 

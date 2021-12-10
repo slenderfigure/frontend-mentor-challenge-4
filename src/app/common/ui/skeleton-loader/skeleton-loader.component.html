@@ -1,0 +1,17 @@
+<ul *ngIf="showLoader" 
+  class="skeleton" 
+  [class.dark-theme]="darkModeActive"
+  role="progressbar"
+  aria-busy="true">
+  <li *ngFor="let card of skeletonItems"
+    aria-label="Loading Indicator"
+    class="skeleton-card">
+    <div class="top"></div>
+
+    <div class="body">
+      <p class="bar bar-l"></p>
+      <p class="bar bar-s"></p>
+      <p class="bar bar-s"></p>
+    </div>
+  </li>
+</ul>

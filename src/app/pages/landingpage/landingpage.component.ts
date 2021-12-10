@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CountrySrchResult } from 'src/app/common/models/country-srch.model';
@@ -17,7 +16,6 @@ export class LandingpageComponent implements OnInit {
   darkModeActive = false;
   fetchingData = true;
   countries: CountrySrchResult[] = [];
-  searchForm!: FormGroup;
   defaultSrchQuery: SrchQuery = { 
     region: 'Americas',
     name: '' 
@@ -27,13 +25,10 @@ export class LandingpageComponent implements OnInit {
     private themeService: PageThemeService,
     private countryService: CountryService,
     private route: ActivatedRoute,
-    private router: Router,
-    private fb: FormBuilder
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.initSearchForm();
-
     this.themeService.themeChanged$.subscribe({
       next: value => this.darkModeActive = value
     });
@@ -63,25 +58,13 @@ export class LandingpageComponent implements OnInit {
     });
   }
 
-  private initSearchForm(): void {
-    this.searchForm = this.fb.group({ searchKeyword: '' });
-  }
-
   updateFilter(region: string): void {
     this.defaultSrchQuery.name = '';
     this.router.navigate([''], { queryParams: { region } });
   }
-
-  get searchCtrl(): FormControl {
-    return <FormControl>this.searchForm.get('searchKeyword');
-  }
-
-  onSearch(): void {
-    if (!this.searchCtrl.value) return;
-
-    this.router.navigate([''], { 
-      queryParams: { name: this.searchCtrl.value } 
-    });
+  
+  onSearch(keyword: string): void {
+    this.router.navigate([''], { queryParams: { name: keyword } });
   }
 
 }

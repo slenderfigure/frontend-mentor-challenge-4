@@ -1,0 +1,78 @@
+@import '/src/styles.scss';
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 0;
+  font-size: $smallFont;
+
+  &.dark-theme {
+    color: $white;
+    fill: $white;
+
+    .form-control {
+      background-color: $darkBlue;
+    }
+
+    .search-button {
+      .icon { fill: $white; }
+    }
+
+    .search-input {
+      &::placeholder { color: $white; }
+    }
+  }
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    flex-direction: column;
+  }
+ 
+  .form-control {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    padding: 0 1.2rem;
+    background-color: $white;
+    border-radius: .4rem;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+    transition: background-color .3s $easeOutQuint;
+
+    &[role="searchbox"] {
+      width: 350px;
+
+      @media only screen and (max-width: $mobileBreakpoint) {
+        width: 100%;
+      }
+
+      &:focus-visible { 
+        box-shadow: 0 0 0 2px #3f7fe0;
+      }
+    }
+  }
+
+  .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    .icon {
+      fill: $darkGrey;
+    }  
+  }
+
+  .search-input {
+    display: block;
+    flex: 1;
+    padding: 0 1rem;
+    outline: none;
+
+    &::placeholder {
+      font-size: .8rem;
+      user-select: none;
+    }
+  }
+}

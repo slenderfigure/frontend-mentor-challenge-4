@@ -12,6 +12,8 @@ import { CountryCardComponent } from './pages/landingpage/country-card/country-c
 import { SharedModule } from './shared/shared.module';
 import { ProgressbarComponent } from './layout/navbar/progressbar/progressbar.component';
 import { RegionFilterMenuComponent } from './pages/landingpage/region-filter-menu/region-filter-menu.component';
+import { SearchFormComponent } from './pages/landingpage/search-form/search-form.component';
+import { SkeletonLoaderComponent } from './common/ui/skeleton-loader/skeleton-loader.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RegionFilterMenuComponent } from './pages/landingpage/region-filter-men
     NavbarComponent,
     ProgressbarComponent,
     CountryCardComponent,
-    RegionFilterMenuComponent
+    RegionFilterMenuComponent,
+    SearchFormComponent,
+    SkeletonLoaderComponent
   ],
   imports: [
     BrowserModule,

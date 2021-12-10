@@ -1,0 +1,89 @@
+@import '/src/styles.scss';
+
+.skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 3.5rem;
+  animation: fadeIn .4s $easeOutQuint;
+
+  &.dark-theme {
+    .skeleton-card {
+      &::after {
+        background-image: linear-gradient(
+          to left, 
+          transparent, 
+          $veryDarkBlue, 
+          transparent
+        );
+      }
+
+      .top,
+      .bar {
+        background-color: $darkBlue;
+      }
+    }
+  }
+  
+  .skeleton-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        to left, 
+        transparent, 
+        $lightGrey, 
+        transparent
+      );
+      animation: oscilate 1s linear infinite; 
+    }
+    
+    .top {
+      height: 10rem;
+      margin-bottom: .5rem;
+      border-radius: .4rem;
+      background-color: rgba(0, 0, 0, .2);
+
+      @media only screen and (max-width: $tabletBreakpoint) {
+        height: 12rem;
+      }
+  
+      @media only screen and (max-width: $mobileBreakpoint) {
+        height: 16rem;
+      }
+    }
+
+    .body {
+      padding: 1rem 1.2rem;
+    }
+
+    .bar {
+      border-radius: .5rem;
+      background-color: rgba(0, 0, 0, .2);
+
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+      
+      &-l {
+        width: 85%;
+        height: 1rem;
+      }
+
+      &-s {
+        width: 65%;
+        height: .85rem;
+      }
+    }
+  }
+}
