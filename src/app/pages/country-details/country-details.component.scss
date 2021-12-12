@@ -31,6 +31,10 @@
         transform-origin: left;
         transform: scale(.8) translateX(-5px);
       }
+
+      &:focus-visible { 
+        box-shadow: 0 0 0 2px #3f7fe0;
+      }
     }
   }
 

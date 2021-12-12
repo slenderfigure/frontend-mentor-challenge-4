@@ -30,4 +30,9 @@ export class SearchFormComponent implements OnInit {
     this.onSearch.emit(this.searchCtrl.value);
   }
 
+  onClear(input: HTMLInputElement): void {
+    this.searchCtrl.reset();
+    input.focus();
+  }
+
 }

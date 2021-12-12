@@ -3,13 +3,14 @@
 :host {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .country-card {
   display: flex;
   flex-direction: column;
   width: inherit;
+  height: inherit;
   font-size: $smallFont;
   border-radius: .4rem;
   background-color: $white;
@@ -46,14 +47,19 @@
 
   &__body {
     flex: 1;
-    padding: 1.5rem 1.2rem 2.5rem;
+    padding: 1.5rem 1.2rem 2rem;
     overflow: hidden;
   }
 
   &__name {
+    padding: .1rem 0;
     margin-bottom: 1rem;
     font-size: $mediumFont;
     font-weight: 800;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__population,

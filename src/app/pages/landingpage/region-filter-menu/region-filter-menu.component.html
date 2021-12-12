@@ -1,6 +1,7 @@
 <div class="filter-menu"
   [class.dark-theme]="darkModeActive">
   <button (click)="showFilterList = !showFilterList;"
+    [attr.aria-expanded]="showFilterList"
     type="button" 
     class="filter-button"
     [class.active]="showFilterList">
@@ -14,7 +15,8 @@
   <ul role="menu" 
     class="filter-list"
     [class.active]="showFilterList">
-    <li *ngFor="let region of regions" 
+    <li #filterListItem 
+      *ngFor="let region of regions" 
       (click)="onFilterClicked($event, region)"
       (keyup)="onFilterEnterKeyPressed($event, region)"
       tabindex="0"

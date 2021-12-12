@@ -15,7 +15,8 @@
       background-color: $darkBlue;
     }
 
-    .search-button {
+    .search-button,
+    .clear-button {
       .icon { fill: $white; }
     }
 
@@ -51,15 +52,18 @@
     }
   }
 
-  .search-button {
+  .search-button,
+  .clear-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 1.3rem;
+    height: 1.3rem;
     border-radius: 50%;
 
     .icon {
+      width: 100%;
+      height: 100%;
       fill: $darkGrey;
     }  
   }
@@ -73,6 +77,17 @@
     &::placeholder {
       font-size: .8rem;
       user-select: none;
+    }
+  }
+  
+  .clear-button {
+    width: 1rem;
+    height: 1rem;
+    transition: opacity .2s $easeOutQuint;
+
+    &:disabled {
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }

@@ -1,4 +1,14 @@
-import { Component, Input, OnInit, EventEmitter, HostListener, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  EventEmitter,
+  HostListener,
+  Output,
+  ViewChildren,
+  QueryList,
+  ElementRef
+} from '@angular/core';
 import { REGIONS } from '../config/regions.config';
 
 @Component({
@@ -10,19 +20,26 @@ export class RegionFilterMenuComponent implements OnInit {
   @Input() darkModeActive = false;
   @Input() selectedOption!: string;
   @Output() filterChanged = new EventEmitter<string>();
+  @ViewChildren('filterListItem') filterListItems!: QueryList<ElementRef<HTMLElement>>;
   showFilterList = false;
   regions = REGIONS;
+  listIndex = -1;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  private resetState(): void {
+    this.showFilterList = false;
+    this.listIndex = -1;
+  }
+
   private onfilterChanged(region: string): void {
     if (region === this.selectedOption) return;
     
     this.filterChanged.emit(region);
-    this.showFilterList = false;
+    this.resetState();
   }
 
   onFilterClicked(e: MouseEvent, region: string): void {
@@ -31,7 +48,7 @@ export class RegionFilterMenuComponent implements OnInit {
   }
 
   onFilterEnterKeyPressed(e: KeyboardEvent, region: string): void {
-    if (!this.showFilterList || e.key !== 'Enter') return;
+    if (!this.showFilterList || (e.key !== 'Enter')) return;
     this.onfilterChanged(region); 
   }
 
@@ -41,14 +58,29 @@ export class RegionFilterMenuComponent implements OnInit {
 
     const target = <HTMLElement>e.target;
 
-    if (!target.closest('.filter-menu')) this.showFilterList = false;
+    if (!target.closest('.filter-menu')) this.resetState();
   }
 
-  @HostListener('window:keyup', ['$event'])
-  escapeKeyPressed(e: KeyboardEvent): void {
-    if (!this.showFilterList || e.key !== 'Escape') return;
+  @HostListener('window:keydown', ['$event'])
+  onKeydown(e: KeyboardEvent): void {
+    if (!this.showFilterList) return;
+
+    e.preventDefault();
     
-    this.showFilterList = false;
+    switch (e.key) {
+      case 'Escape':
+        this.resetState();
+        break;    
+      case 'ArrowDown':
+        (this.listIndex < this.regions.length - 1) ? ++this.listIndex : null;        
+        break;      
+      case 'ArrowUp':
+        (this.listIndex > 0) ? --this.listIndex : null;
+        break;    
+      default:
+        return;
+    }   
+    this.filterListItems.toArray()[this.listIndex]?.nativeElement.focus();
   }
 
 }
