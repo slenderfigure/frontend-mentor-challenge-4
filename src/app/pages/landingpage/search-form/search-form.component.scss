@@ -45,10 +45,10 @@
       @media only screen and (max-width: $mobileBreakpoint) {
         width: 100%;
       }
+    }
 
-      &:focus-visible { 
-        box-shadow: 0 0 0 2px #3f7fe0;
-      }
+    &[data-focus-on] { 
+      box-shadow: 0 0 0 2px #3f7fe0;
     }
   }
 
